@@ -1,10 +1,9 @@
 from rest_framework import serializers
-from .models import Agent, AgentMaster, PhoneType,
-                    AgentAddress, AgentEmail
+from .models import Agent
 
 
-class AgentSerializer(serializers.ModelSerializer)
+class AgentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Agent
-        fields = ('id','agent_no', 'name','address',
+        fields = ('id', 'url', 'agent_no', 'name','address',
                 'city','state','zipcode','status')
